@@ -43,6 +43,25 @@ app.get('/index', (req, res) => {
     })
 })
 
+// MediaWiki API
+app.get('/api/mediawiki', (req, res) => {
+    let url = "https://en.wikipedia.org/w/api.php"; 
+
+    const params = {
+        action: "query",
+        generator: "geosearch",
+        prop: "coordinates|pageimages",
+        ggscoord: "-37.8267882|144.9559848",
+        format: "json"
+    };
+
+    url = url + "?origin=*";
+    Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+
+    axios.get(url).then((apiRes) => {
+        res.json(apiRes.data);
+    })
+})
 
 
 
