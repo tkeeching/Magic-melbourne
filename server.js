@@ -40,6 +40,8 @@ app.get('/index', (req, res) => {
     // // }
 
     let url = `https://api.sygictravelapi.com/1.2/en/places/list?parents=city:381&categories=${ req.query.category }&limit=20`
+    // let url = `https://api.sygictravelapi.com/1.2/en/places/list?location=-37.820,144.981&categories=${ req.query.category }&limit=20`
+    
 
     // res.send(url)
     
