@@ -3,10 +3,10 @@
     grid-template-columns: 2fr 6fr 1fr;
     border: 2px solid rgb(172, 179, 184);
     font-family:-apple-system, BlinkMacSystemFont;
-    padding: 10px 0;
+    padding: 10px 20px 10px 0;
     color: #262626;
     width: 800px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .interest_description {
@@ -15,10 +15,11 @@
 
 .interest_box img {
     width: 190px;
+    height: 130px;
 }
 
 .interest_star {
-    margin: 80px 0 0 30px;
+    margin: 45px 0 0 30px;
     color: #6557F5;
 }
 

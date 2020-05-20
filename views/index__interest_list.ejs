@@ -1,19 +1,20 @@
 <div class="interest_container">
    
-   <% attractions.forEach(attraction => { %> 
-    <!-- TO BE FINISHED -->
-        <div class="interest_box">
-            <img src="https://whatsonblog.melbourne.vic.gov.au/wp-content/uploads/2019/10/Birds-nest-garden-580x387.jpg" alt="">
-            <div class="interest_description">
-                <h2><%= attraction.name %> </h2>
-                <p><%= attraction.description %> </p>
-            </div>
-            <div class="interest_star">
-                <i class="fa fa-star-o" style="font-size:36px"></i>
-            </div>
-        </div>
-
-    <% })  %> 
-
-</div>
-
+    <% attractions.forEach(attraction => { %> 
+     <!-- TO BE FINISHED -->
+         <div class="interest_box">
+             <img src="<%= attraction.image %>" alt="">
+             <div class="interest_description">
+                 <h2><%= attraction.name %> </h2>
+                 <p><%= attraction.description %> </p>
+             </div>
+             <div class="interest_star">
+                 <i class="fa fa-star-o" style="font-size:50px"></i>
+             </div>
+         </div>
+ 
+     <% })  %> 
+ 
+ </div>
+ 
+ 
