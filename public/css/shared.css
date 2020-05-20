@@ -12,7 +12,7 @@
     font-size: 16px;
 }
 
-nav {
+.shared_nav nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -20,10 +20,30 @@ nav {
     padding: 0 50px;
 }
 
-nav p {
+.shared_nav nav h3 {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 30px;
+    margin: 0;
+}
+
+.shared_nav nav span {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 21.5px;
+}
+
+.shared_nav nav p {
     text-align: right;
 }
 
+.shared_nav nav i {
+    margin: 10px 30px 0 0;
+    color: #6557f5;
+}
+
+.shared_nav nav button {
+    font-weight: 500;
+    text-transform: uppercase;
+}
 
 .global_component {
     width: 70%;

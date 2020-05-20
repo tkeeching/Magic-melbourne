@@ -1,0 +1,11 @@
+body, h1 {
+    margin: 0;
+}
+
+.welcome_page__header {
+    background-color: aqua;
+    height: 170px;
+    display: grid;
+    align-content: center;
+    text-align: center;
+}
