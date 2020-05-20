@@ -49,7 +49,10 @@ app.get('/api/geojson', (req, res) => {
     res.json(geoJSON.displayPOI());
 })
 
-
+// geoJSON output
+app.get('/api/geojson', (req, res) => {
+    res.json(geoJSON.displayPOI());
+})
 
 ////////////   SERVER LISTENNING  /////////////
 app.listen(port, () => {
