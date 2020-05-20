@@ -3,15 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index__interest_list.css">
+    <link rel="stylesheet" href="css/index__map.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
 
     <h1>Index page</h1>
     <%- include('shared__navbar'); -%>
+    <button class="mapViewBtn">Map View</button>
+    <button class="listViewBtn">List View</button>
     <%- include('index__map'); -%>
     <%- include('index__interest_list'); -%>
     <%- include('shared__footer'); -%>
 
+    <script>
+        var mapBtn = document.querySelector('.mapViewBtn');
+        var listViewBtn = document.querySelector('.listViewBtn');
+        var mapContainer = document.querySelector('.map_container');
+        var interestContainer = document.querySelector('.interest_container');
+
+        var mapDisplay = true;
+
+        function checkIfMapViewTrue() {
+            if (mapDisplay === true) {
+            interestContainer.style.display = "none";
+            mapContainer.style.display = "block";
+            } else {
+                mapContainer.style.display = "none";
+                interestContainer.style.display = "block";
+            }
+        }
+
+        function checkColorToggle() {
+            if (mapDisplay === true) {
+                mapBtn.style.backgroundColor = "#6557f5";
+                mapBtn.style.color = "white";
+                listViewBtn.style.backgroundColor = "white";
+                listViewBtn.style.color = "#6557f5";
+                listViewBtn.style.border = "1px solid #6557f5";
+            } else {
+                mapBtn.style.backgroundColor = "white";
+                mapBtn.style.color = "#6557f5";
+                listViewBtn.style.backgroundColor = "#6557f5";
+                listViewBtn.style.color = "white";
+                listViewBtn.style.border = "1px solid #6557f5";
+            }
+        }
+
+        checkIfMapViewTrue();
+        checkColorToggle();
+ 
+        mapBtn.addEventListener('click', function(e) {
+            mapDisplay = true;
+            checkIfMapViewTrue();
+            checkColorToggle();
+        })
+
+        listViewBtn.addEventListener('click', function(e) {
+            mapDisplay = false;
+            checkIfMapViewTrue();
+            checkColorToggle();
+        })
+    </script>
 </body>
 </html>

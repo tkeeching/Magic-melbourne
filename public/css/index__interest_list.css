@@ -1,0 +1,32 @@
+.interest_box {
+    display: grid;
+    grid-template-columns: 2fr 6fr 1fr;
+    border: 2px solid rgb(172, 179, 184);
+    font-family: -apple-system, BlinkMacSystemFont;
+    padding: 10px 0;
+    color: #262626;
+    width: 800px;
+    margin-top: 10px;
+}
+
+.interest_description {
+    margin: 5px 0 0 15px;
+}
+
+.interest_box img {
+    width: 190px;
+}
+
+.interest_star {
+    margin: 80px 0 0 30px;
+    color: #6557F5;
+}
+
+.interest_box p {
+    margin: 0;
+}
+
+.interest_box h2 {
+    margin-bottom: 8px;
+    margin-top: -3px;
+}
