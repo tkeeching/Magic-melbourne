@@ -5,6 +5,7 @@ const port = 8080;
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const geoJSON = require('./library/geoJSON_module');
 
 // const SygicTravelSDK = require('sygic-travel-js-sdk/index.node')
 // const apiUrl = 'https://api.sygictravelapi.com/1.2/en/';
@@ -77,7 +78,10 @@ app.get('/api/mediawiki', (req, res) => {
     })
 })
 
-
+// geoJSON output
+app.get('/api/geojson', (req, res) => {
+    res.json(geoJSON.displayPOI());
+})
 
 
 
