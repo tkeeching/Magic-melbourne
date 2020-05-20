@@ -26,11 +26,11 @@ app.get('/', (req, res) => {
 
 
 app.get('/index', (req, res) => {
-    let url = "https://api.sygictravelapi.com/1.2/en/places/list?location=-37.820,144.981&query=hotels&limit=20"
-    axios.get(url).then(response =>{
-        res.json(response.data)
-    })
-    // res.render('index')
+    // let url = "https://api.sygictravelapi.com/1.2/en/places/list?location=-37.820,144.981&query=hotels&limit=20"
+    // axios.get(url).then(response =>{
+    //     res.json(response.data)
+    // })
+    res.render('index')
 })
 
 

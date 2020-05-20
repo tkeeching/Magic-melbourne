@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 2fr 6fr 1fr;
     border: 2px solid rgb(172, 179, 184);
-    font-family: -apple-system, BlinkMacSystemFont;
+    font-family:-apple-system, BlinkMacSystemFont;
     padding: 10px 0;
     color: #262626;
     width: 800px;
@@ -30,3 +30,4 @@
     margin-bottom: 8px;
     margin-top: -3px;
 }
+
