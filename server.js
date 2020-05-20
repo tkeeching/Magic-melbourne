@@ -21,27 +21,10 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/index', (req, res) => {
+app.get('/api/index', (req, res) => {
     
-    // res.json(req.query.category)
-
-    // //query the API for the relevant interest
-
-    // // switch (req.params) {
-    // //     case food:
-    //                 // then variables is best restaurants
-    // //         break;
-    // //     case POI:
-    //                 // then variables is POI
-    // //         break;
-    
-    // //     default:
-    // //         break;
-    // // }
-
+    // res.send('hello')
     let url = `https://api.sygictravelapi.com/1.2/en/places/list?parents=city:381&categories=${ req.query.category }&limit=20`
-    // let url = `https://api.sygictravelapi.com/1.2/en/places/list?location=-37.820,144.981&categories=${ req.query.category }&limit=20`
-    
 
     // res.send(url)
     
@@ -50,7 +33,10 @@ app.get('/index', (req, res) => {
             'x-api-key': 'BNLiHyXDsUa1OhdwsHho47y6rO0HKcNa5BWnofl7'
           }
     }).then(response =>{
-        //clean up the date to provide us the relevant information
+        
+        // res.json(response.data)
+
+        // clean up the date to provide us the relevant information
         let arrOfPlaces = response.data.data.places
         let arrOfInstances = []
 
@@ -61,24 +47,60 @@ app.get('/index', (req, res) => {
  
         let geoJData = []
         arrOfInstances.forEach(instance => {
-            geoJData.push(geoJSON.convertToGeoJSON(instance.name, instance.description, instance.location.lat, instance.location.lng));
+            geoJData.push(geoJSON.convertToGeoJSON(response.data));
         })
 
-        // res.send(geoJData)
+        // res.render('index', {
+        //     attractions: arrOfInstances,
+        //     geoJData: geoJData[0]
+        // })
+        res.json(geoJData[0])
+    })
+})
+
+app.get('/index', (req, res) => {
+    
+    // res.send('hello')
+    let url = `https://api.sygictravelapi.com/1.2/en/places/list?parents=city:381&categories=${ req.query.category }&limit=20`
+
+    // res.send(url)
+    
+    axios.get(url,{
+        headers: {
+            'x-api-key': 'BNLiHyXDsUa1OhdwsHho47y6rO0HKcNa5BWnofl7'
+          }
+    }).then(response =>{
+        
+        // res.json(response.data)
+
+        // clean up the date to provide us the relevant information
+        let arrOfPlaces = response.data.data.places
+        let arrOfInstances = []
+
+        arrOfPlaces.forEach(place =>{
+            let instancePlace = {id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url}
+            arrOfInstances.push(instancePlace)
+        })
+ 
+        let geoJData = []
+        arrOfInstances.forEach(instance => {
+            geoJData.push(geoJSON.convertToGeoJSON(response.data));
+        })
+
+        let greeting = "hello"
 
         res.render('index', {
             attractions: arrOfInstances,
-            geoJData: geoJData
+            geoJData: geoJData[0],
+            greeting: greeting
         })
     })
 })
 
 // geoJSON output
-// app.get('/api/geojson', (req, res) => {
-//     res.json(geoJSON.displayPOI());
-// })
-
-
+app.get('/api/geojson', (req, res) => {
+    res.json(geoJSON.convertToGeoJSON());
+})
 
 ////////////   SERVER LISTENNING  /////////////
 app.listen(port, () => {

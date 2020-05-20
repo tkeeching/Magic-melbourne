@@ -19,96 +19,93 @@
 <body>
     <!-- map container -->
     <section class="map_container" id="map"></section>
+    <%= greeting  %> 
 
 
-    <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2NHRlY2giLCJhIjoiY2thZGk2NTMyMjU5YTJ5cG03amhzdjFsaiJ9.W3prOXoqchGC_HA662EK6g';
-        
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        ///////longitude / latitude
-        center: [144.9631, -37.8136],
-        zoom: 11.15
-    });
-    //geoJData[0]
-    map.on('load', function() {
-        // INSERT DATA HERE
-        map.addSource('places', {
-            'type': 'geojson',
-            'data':
-            { 
-                'type': 'FeatureCollection',
-                'features': [
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                                'description':
-                            '<strong>Make it Mount Pleasant</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">Make it Mount Pleasant</a> is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.<button>Click</button></p>',
 
-                                'icon': 'beer'
-                            },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [145, -37.8136]
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                        'description':
-                        '<strong>Season Five Finale Watch Party</strong><p>Head to Lounge 201 (201 Massachusetts Avenue NE) Sunday for a <a href="http://madmens5finale.eventbrite.com/" target="_blank" title="Opens in a new window">Mad Men Season Five Finale Watch Party</a>, complete with 60s costume contest, Mad Men trivia, and retro food and drink. 8:00-11:00 p.m. $10 general admission, $20 admission and two hour open bar.</p>',
-                        'icon': 'museum'
-                        },
-                        'geometry': {
-                        'type': 'Point',
-                        'coordinates': [145, -37.81]
-                        }
-                    },
-                ]
-            }
-        });
-        // Add a layer showing the places.
-        map.addLayer({
-        'id': 'places',
-        'type': 'symbol',
-        'source': 'places',
-        'layout': {
-        'icon-image': '{icon}-15',
-        'icon-allow-overlap': true
-        }
-        });
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script> 
+
+<script>
+
+    console.log('hi');
+    greeting
+    <%greeting%>
+    <%=greeting%>
+    console.log(<%= greeting %>);
+
+
+    // let url = 'http://localhost:8080/api/index'
+    // make a request to somewhere?
+    // axios.get(url).then(res => {
+
+        // console.log(res);
+
+        // mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2NHRlY2giLCJhIjoiY2thZGk2NTMyMjU5YTJ5cG03amhzdjFsaiJ9.W3prOXoqchGC_HA662EK6g';
         
-        // When a click event occurs on a feature in the places layer, open a popup at the
-        // location of the feature, with description HTML from its properties.
-        map.on('click', 'places', function(e) {
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = e.features[0].properties.description;
-        
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
-        
-        new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(description)
-        .addTo(map);
-        });
-        
-        // // Change the cursor to a pointer when the mouse is over the places layer.
-        // map.on('mouseenter', 'places', function() {
-        //     map.getCanvas().style.cursor = 'pointer';
+        // var map = new mapboxgl.Map({
+        //     container: 'map',
+        //     style: 'mapbox://styles/mapbox/streets-v11',
+        //     ///////longitude / latitude
+        //     center: [144.9631, -37.8136],
+        //     zoom: 11.15
         // });
-        
-        // // Change it back to a pointer when it leaves.
-        // map.on('mouseleave', 'places', function() {
-        //     map.getCanvas().style.cursor = '';
+    
+        // map.on('load', function() {
+        //     // INSERT DATA HERE
+        //     map.addSource('places', {
+        //         'type': 'geojson',
+        //         'data': res
+        //     });
+        //     // Add a layer showing the places.
+        //     map.addLayer({
+        //     'id': 'places',
+        //     'type': 'symbol',
+        //     'source': 'places',
+        //     'layout': {
+        //     'icon-image': '{icon}-15',
+        //     'icon-allow-overlap': true
+        //     }
+        //     });
+            
+        //     // When a click event occurs on a feature in the places layer, open a popup at the
+        //     // location of the feature, with description HTML from its properties.
+        //     map.on('click', 'places', function(e) {
+        //     var coordinates = e.features[0].geometry.coordinates.slice();
+        //     var description = e.features[0].properties.description;
+            
+        //     // Ensure that if the map is zoomed out such that multiple
+        //     // copies of the feature are visible, the popup appears
+        //     // over the copy being pointed to.
+        //     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        //     }
+            
+        //     new mapboxgl.Popup()
+        //     .setLngLat(coordinates)
+        //     .setHTML(description)
+        //     .addTo(map);
+        //     });
+            
+        //     // // Change the cursor to a pointer when the mouse is over the places layer.
+        //     // map.on('mouseenter', 'places', function() {
+        //     //     map.getCanvas().style.cursor = 'pointer';
+        //     // });
+            
+        //     // // Change it back to a pointer when it leaves.
+        //     // map.on('mouseleave', 'places', function() {
+        //     //     map.getCanvas().style.cursor = '';
+        //     // });
         // });
-    });
-    </script>
+
+    // })
+
+
+
+   
+</script>
 
 </body>
 </html>
