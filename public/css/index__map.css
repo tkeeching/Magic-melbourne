@@ -1,6 +1,6 @@
 #map {
-    height: 500px;
-    width: 70%;
+    height: 700px;
+    width: 80%;
     margin: 0 auto;
     border-radius: 5px;
     margin-top: 20px;
@@ -8,5 +8,20 @@
 
 .mapboxgl-popup {
     max-width: 400px;
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    }
+    font: 14px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+.mapboxgl-popup-content {
+    width: 350px;
+}
+
+.index__map_layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.index__map__pop_up_image {
+    justify-self: center;
+}
