@@ -7,12 +7,6 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const geoJSON = require('./library/geoJSON_module');
 
-// const SygicTravelSDK = require('sygic-travel-js-sdk/index.node')
-// const apiUrl = 'https://api.sygictravelapi.com/1.2/en/';
-// const clientKey = 'BNLiHyXDsUa1OhdwsHho47y6rO0HKcNa5BWnofl7';
-// const stSDK: SygicTravelSDK.StSDK = SygicTravelSDK.create(apiUrl, clientKey);
-// // const stSDK1 =  SygicTravelSDK.StSDK 
-// // const stSDK = SygicTravelSDK.create(apiUrl, clientKey);
 
 ////////////   Middleware /////////////
 app.set('view engine', 'ejs');
@@ -57,22 +51,30 @@ app.get('/index', (req, res) => {
         //clean up the date to provide us the relevant information
         let arrOfPlaces = response.data.data.places
         let arrOfInstances = []
+
         arrOfPlaces.forEach(place =>{
-            let instacePlave = {id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url}
-            arrOfInstances.push(instacePlave)
+            let instancePlace = {id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url}
+            arrOfInstances.push(instancePlace)
         })
-        // res.json(arrOfPlaces)
-        // res.json(arrOfInstances)
+ 
+        let geoJData = []
+        arrOfInstances.forEach(instance => {
+            geoJData.push(geoJSON.convertToGeoJSON(instance.name, instance.description, instance.location.lat, instance.location.lng));
+        })
+
+        // res.send(geoJData)
+
         res.render('index', {
-            attractions: arrOfInstances
+            attractions: arrOfInstances,
+            geoJData: geoJData
         })
     })
 })
 
 // geoJSON output
-app.get('/api/geojson', (req, res) => {
-    res.json(geoJSON.displayPOI());
-})
+// app.get('/api/geojson', (req, res) => {
+//     res.json(geoJSON.displayPOI());
+// })
 
 
 
