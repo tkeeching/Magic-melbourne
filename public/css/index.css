@@ -1,0 +1,37 @@
+body {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.mapViewBtn {
+    background-color: white; 
+    border: 1px solid #6557f5;
+    color: #6557f5;
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.listViewBtn {
+    background-color: #6557f5; 
+    border: 1px solid #6557f5;
+    border: none;
+    color: white;
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+button:focus {
+    outline: none;
+}
