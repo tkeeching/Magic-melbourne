@@ -1,0 +1,33 @@
+.sign_in_button {
+    background-color: #6557f5; 
+    border: 1px solid #6557f5;
+    color: white;
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    border-bottom: 2px solid gray;
+    padding: 0 50px;
+}
+
+nav p {
+    text-align: right;
+}
+
+
+.global_component {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+

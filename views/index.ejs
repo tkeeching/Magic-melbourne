@@ -6,17 +6,19 @@
     <link rel="stylesheet" href="css/index__interest_list.css">
     <link rel="stylesheet" href="css/index__map.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/shared.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
 
-    <h1>Index page</h1>
     <%- include('shared__navbar'); -%>
-    <button class="mapViewBtn">Map View</button>
-    <button class="listViewBtn">List View</button>
-    <%- include('index__map'); -%>
-    <%- include('index__interest_list'); -%>
+    <div class="global_component">
+        <button class="mapViewBtn">Map View</button>
+        <button class="listViewBtn">List View</button>
+        <%- include('index__map'); -%>
+        <%- include('index__interest_list'); -%>
+    </div>
     <%- include('shared__footer'); -%>
 
     <script>
