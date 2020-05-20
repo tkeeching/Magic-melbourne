@@ -28,7 +28,22 @@ app.get('/', (req, res) => {
 
 
 app.get('/index', (req, res) => {
+    
+    //query the API for the relevant interest
+    // switch (req.params) {
+    //     case food:
+                    // then variables is best restaurants
+    //         break;
+    //     case POI:
+                    // then variables is POI
+    //         break;
+    
+    //     default:
+    //         break;
+    // }
+
     let url = "https://api.sygictravelapi.com/1.2/en/places/list?location=-37.820,144.981&query=hotels&limit=20"
+    
     axios.get(url,{
         headers: {
             'x-api-key': 'BNLiHyXDsUa1OhdwsHho47y6rO0HKcNa5BWnofl7'

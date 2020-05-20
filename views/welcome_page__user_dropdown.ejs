@@ -1,11 +1,11 @@
 <h3>User dropdown</h3>
 
-<div class="welcome_page__user_dropdown">
-  <form action="">
+<section class="welcome_page__user_dropdown">
+  <form action="/index" method="get">
     <label for="category">Choose a category:</label>
     <select name="category" id="">
-      <option value="category-food">Food</option>
-      <option value="category-cultural">Cultural</option>
+      <option name="food" value="category-food">Food</option>
+      <option name="POI" value="category-cultural">Cultural</option>
     </select>
   
     <label for="budget">Choose a budget:</label>
@@ -16,5 +16,5 @@
   
     <button class="welcome_page__user_dropdown_search_btn">Search</button>
   </form>
-</div>
+</section>
 
