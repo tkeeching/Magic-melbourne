@@ -30,7 +30,7 @@ app.get('/index', (req, res) => {
     axios.get(url).then(response =>{
         res.json(response.data)
     })
-    res.render('index')
+    // res.render('index')
 })
 
 
