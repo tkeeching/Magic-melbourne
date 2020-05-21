@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/itinerary.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="https://flabbergastwiz.com/wp-content/uploads/2018/09/cropped-FBfavicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -31,13 +32,15 @@
             <%selectedLocs.forEach(loc1 => { %> 
                 <p><% var loc = JSON.parse(loc1) %></p>
                 <div class="itinerary_interest_box">
-                    <img src="
+                    <div style="display: grid; align-items: center;justify-content: center; ">
+                        <img src="
                         <% if (!loc.image) { %>
                             https://www.abc.net.au/cm/rimage/6823728-3x2-xlarge.jpg?v=8
                         <% } else { %>
                             <%= loc.image %>
                         <% } %>
                  " alt="">
+                    </div>
                     <div class="itinerary_interest_description">
                         <h2><%= loc.name %> </h2>
                         <p><%= loc.description %></p>
