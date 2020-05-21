@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMM Your itinerary</title>
+
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/index__interest_list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <%- include('shared__navbar'); -%>
+    
+    <Header class="itinerary_page__header">
+        <h2>Your Activities</h2>
+    </Header>
+
+    <div class="global_component">
+        <section class="itinerary_page__controls">
+            <button class="button button_outline">Print</button>
+            <button class="button button_outline">Share</button>
+        </section>
+
+        <section class="interest_container itinerary_page__interest_list">
+    
+            <!-- SET IT UP -->
+            <%// attractions.forEach(attraction => { %> 
+                <div class="interest_box">
+                    <img src="<%=// attraction.image %>" alt="">
+                    <div class="interest_description">
+                        <h2><%=// attraction.name %> </h2>
+                        <p><%=// attraction.description %></p>
+                        <p>Address: </p>
+                        <p>Recommended time: </p>
+                    </div>
+                    <form action="/attraction" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="hidden" name="id" value="<%=// attraction.id %>">
+                        <button class="">Remove</button>
+                    </form>
+                </div>
+        
+            <%// })  %>   
+        </section>
+    </div>
+</body>
+</html>
