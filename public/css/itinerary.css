@@ -12,7 +12,7 @@ body {
 
 .itinerary_interest_box {
     display: grid;
-    grid-template-columns: 2fr 6fr 1fr;
+    grid-template-columns: 3fr 9fr 1fr;
     border: 2px solid rgb(172, 179, 184);
     font-family:-apple-system, BlinkMacSystemFont;
     padding: 10px 20px 10px 0;
@@ -31,7 +31,7 @@ body {
 
 .itinerary_interest_box button {
     position: relative;
-    margin: 200px 0 0 20px;
+    margin: 180px 0 0 10px;
     font-size: 20px;
     background-color: #6557f5; 
     border: 1px solid #6557f5;
