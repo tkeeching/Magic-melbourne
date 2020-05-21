@@ -11,7 +11,13 @@
         <% attractions.forEach(attraction => { %> 
          <!-- TO BE FINISHED -->
              <div class="interest_box">
-                 <img src="<%= attraction.image %>" alt="">
+                 <img src="
+                <% if (!attraction.image) { %>
+                    https://www.abc.net.au/cm/rimage/6823728-3x2-xlarge.jpg?v=8
+                <% } else { %>
+                    <%= attraction.image %>
+                <% } %>
+                 " alt="">
                  <div class="interest_description">
                      <h2><%= attraction.name %> </h2>
                      <p><%= attraction.description %> </p>
