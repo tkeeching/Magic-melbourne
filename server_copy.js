@@ -60,14 +60,34 @@ app.get('/index', (req, res) => {
         arrOfInstances.push(instancePlace)
     })
 
-    // let geoJData = geoJSON.convertToGeoJSON(arrOfInstances);
+   
 
     res.render('index', {
         attractions: arrOfInstances,
-        // geoJData: geoJData, // not required since we made a call to /api/geojson to retrieve the geojson data instead
     })
   })
 })
+
+app.post('/attractions', (req, res) => {
+  console.log('Made It');
+  // console.log(req.body);
+  console.log(req.body.attraction);
+  sess = req.session
+  sess.attractions = []
+  sess.attractions.push(req.body.attraction)
+  console.log(sess.attractions);
+  
+})
+
+// FOR HTMLLLL
+// console.log(e.target.dataset.object);
+
+// const url = '/attractions'
+// const params = {
+//     attraction: e.target.dataset.object
+// }
+
+// axios.post(url,params)
 
 // geoJSON output
 app.get('/api/geojson', (req, res) => {
