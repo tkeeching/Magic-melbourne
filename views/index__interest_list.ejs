@@ -9,7 +9,6 @@
     <div class="interest_container">
    
         <% attractions.forEach(attraction => { %> 
-         <!-- TO BE FINISHED -->
              <div class="interest_box">
                  <img src="
                 <% if (!attraction.image) { %>
@@ -23,7 +22,7 @@
                      <p><%= attraction.description %> </p>
                  </div>
                  <div class="interest_star">
-                     <i class="fa fa-star-o" id="<%=attraction.id%>" style="font-size:50px"></i>
+                     <i class="fa fa-star-o" data-object="<%= JSON.stringify(attraction);%>" id="<%=attraction.id%>" style="font-size:50px"></i>
                  </div>
              </div>
      

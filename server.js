@@ -9,12 +9,24 @@ const geoJSON = require('./library/geoJSON_module');
 const session = require('express-session');
 const { v4: genuuid } = require('uuid');
 
+const indexRouter = require('./routes/index')
+const attractionsRouter = require('./routes/attractions')
+
 
 ////////////   Middleware /////////////
 app.set('view engine', 'ejs');
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+
+////////////   routing /////////////
+// app.use('/', indexRouter)
+// app.use('/attractions', attractionsRouter)
+
+
+
+
+////////////  Session setup  /////////////
 app.use(session({
   name: 'SessionCookie',
   genid: function (req) {
@@ -41,10 +53,8 @@ app.get('/', (req, res) => {
 
 app.get('/index', (req, res) => {
   sess = req.session;
-  // res.send('hello')
+  
   let url = `https://api.sygictravelapi.com/1.2/en/places/list?parents=city:381&categories=${req.query.category}&limit=20`
-
-  // res.send(url)
 
   axios.get(url, {
     headers: {
@@ -71,18 +81,25 @@ app.get('/index', (req, res) => {
       currentUserId: sess.id,
       starredItems: sess.starredItems,
       apiResults: sess.apiResults
-      // geoJData: geoJData, // not required since we made a call to /api/geojson to retrieve the geojson data instead
     })
   })
 })
 
 app.get('/itinerary', (req, res) => {
-  // app.send('iti page')
   res.render('itinerary')
 })
 
 app.post('/attractions', (req, res) => {
+  sess = req.session
   console.log(req.body.idArr)
+
+  //this is Kevin experiment, I managed to retrieve the attraction object under req.body.attraction
+  //the problem is that the array keeps on re-initialese....
+  // console.log('Made It');
+  // console.log(req.body.attraction);
+  // sess.attractions = []
+  // sess.attractions.push(req.body.attraction)
+  // console.log(sess.attractions);
 })
 
 // geoJSON output

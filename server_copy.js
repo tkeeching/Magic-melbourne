@@ -79,15 +79,6 @@ app.post('/attractions', (req, res) => {
   
 })
 
-// FOR HTMLLLL
-// console.log(e.target.dataset.object);
-
-// const url = '/attractions'
-// const params = {
-//     attraction: e.target.dataset.object
-// }
-
-// axios.post(url,params)
 
 // geoJSON output
 app.get('/api/geojson', (req, res) => {
