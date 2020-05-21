@@ -19,6 +19,10 @@
         <%- include('index__map'); -%>
         <%- include('index__interest_list'); -%>
     </div>
+    <%= `User ${ currentUserId }'s session`%>
+    <br />
+    <%= `User ${ currentUserId }'s starred items: ${ starredItems }` %>
+
     <%- include('shared__footer'); -%>
 
 <script>
