@@ -81,6 +81,10 @@ app.get('/itinerary', (req, res) => {
   res.render('itinerary')
 })
 
+app.post('/attractions', (req, res) => {
+  console.log(req.body.idArr)
+})
+
 // geoJSON output
 app.get('/api/geojson', (req, res) => {
   sess = req.session;
