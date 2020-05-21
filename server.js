@@ -55,18 +55,9 @@ app.get('/', (req, res) => {
 app.get('/index', (req, res) => {
   sess = req.session;
   
-  let url = `https://api.sygictravelapi.com/1.2/en/places/list?parents=city:381&categories=${req.query.category}&limit=20`
+  if (sess.apiResults) {
 
-  axios.get(url, {
-    headers: {
-      'x-api-key': 'BNLiHyXDsUa1OhdwsHho47y6rO0HKcNa5BWnofl7'
-    }
-  }).then(response => {
-
-    // res.json(response.data)
-
-    // clean up the date to provide us the relevant information
-    let arrOfPlaces = response.data.data.places
+    let arrOfPlaces = sess.apiResults.data.places
     let arrOfInstances = []
 
     arrOfPlaces.forEach(place => {
@@ -74,16 +65,39 @@ app.get('/index', (req, res) => {
       arrOfInstances.push(instancePlace)
     })
 
-    sess.starredItems.push('poi:23432');
-    sess.apiResults = response.data;
-
     res.render('index', {
-      attractions: arrOfInstances,
-      currentUserId: sess.id,
-      starredItems: sess.starredItems,
-      apiResults: sess.apiResults
+      attractions: arrOfInstances
     })
-  })
+
+
+  } else {
+
+    let url = `https://api.sygictravelapi.com/1.2/en/places/list?parents=city:381&categories=${req.query.category}&limit=20`
+
+    axios.get(url, {
+      headers: {
+        'x-api-key': 'BNLiHyXDsUa1OhdwsHho47y6rO0HKcNa5BWnofl7'
+      }
+    }).then(response => {
+
+      // res.json(response.data)
+
+      // clean up the date to provide us the relevant information
+      let arrOfPlaces = response.data.data.places
+      let arrOfInstances = []
+
+      arrOfPlaces.forEach(place => {
+        let instancePlace = { id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url }
+        arrOfInstances.push(instancePlace)
+      })
+
+      sess.apiResults = response.data;
+
+      res.render('index', {
+        attractions: arrOfInstances
+      })
+    })
+  }
 })
 
 app.get('/itinerary', (req, res) => {
