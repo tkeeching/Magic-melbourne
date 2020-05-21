@@ -28,12 +28,19 @@
 
         <section class="itinerary_page__interest_list">
             <!-- SET IT UP -->
-            <%// attractions.forEach(attraction => { %> 
+            <%selectedLocs.forEach(loc1 => { %> 
+                <p><% var loc = JSON.parse(loc1) %></p>
                 <div class="itinerary_interest_box">
-                    <img src="<%=// attraction.image %>" alt="">
+                    <img src="
+                        <% if (!loc.image) { %>
+                            https://www.abc.net.au/cm/rimage/6823728-3x2-xlarge.jpg?v=8
+                        <% } else { %>
+                            <%= loc.image %>
+                        <% } %>
+                 " alt="">
                     <div class="itinerary_interest_description">
-                        <h2>Melbourne Zoo<%=// attraction.name %> </h2>
-                        <p>Melbourne Zoo is a zoological park in Melbourne, Australia. It is located within Royal Park in Parkville, approximately 4 kilometres north of the centre of Melbourne.<%=// attraction.description %></p>
+                        <h2><%= loc.name %> </h2>
+                        <p><%= loc.description %></p>
                         <p><b>Address:</b> 106 Elizabeth Street, Melbourne VIC 3000 </p>
                         <p><b>Recommended time: </b></p>
                         <p><b>Rating:</b>
@@ -55,12 +62,12 @@
                     </div>
                     <form action="/attraction" method="post">
                         <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="id" value="<%=// attraction.id %>">
+                        <input type="hidden" name="id" value="<%= loc.id %>">
                         <button class="">Remove</button>
                     </form>
                 </div>
         
-            <%// })  %>   
+            <%})  %>   
         </section>
     </div>
 </body>

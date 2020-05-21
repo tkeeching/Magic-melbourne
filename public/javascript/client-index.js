@@ -7,23 +7,23 @@ arrOfattractions.forEach(att => {
         let attId = e.target.id
         arrOfSelectedAttractions.push(attId)
         e.target.style.color = 'red'
-        const url = 'http://localhost:8080/attractions'
-        const params = {
-            id: e.target.id,
-            idArr: arrOfSelectedAttractions
-        }
-        axios.post(url, params)
+        // const url = 'http://localhost:8080/attractions'
+        // const params = {
+        //     id: e.target.id,
+        //     idArr: arrOfSelectedAttractions
+        // }
+        // axios.post(url, params)
 
         // V2 => this passes the event target attraction to the server
         
-        // console.log(e.target.dataset.object);
+        console.log(e.target.dataset.object);
 
-        // const url = '/attractions'
-        // const params = {
-        //     attraction: e.target.dataset.object
-        // }
+        const url = '/attractions'
+        const params = {
+            attraction: e.target.dataset.object
+        }
 
-        // axios.post(url,params)
+        axios.post(url,params)
 
     })
 })

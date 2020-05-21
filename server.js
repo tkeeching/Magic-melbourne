@@ -8,9 +8,9 @@ const axios = require('axios');
 const geoJSON = require('./library/geoJSON_module');
 const session = require('express-session');
 const { v4: genuuid } = require('uuid');
-
 const indexRouter = require('./routes/index')
 const attractionsRouter = require('./routes/attractions')
+let inputForFinalPage = []
 
 
 ////////////   Middleware /////////////
@@ -44,6 +44,7 @@ var sess;
 app.get('/', (req, res) => {
   sess = req.session;
   sess.starredItems = [];
+  inputForFinalPage = []
   res.render('welcome_page', {
     currentUserId: sess.id,
     starredItems: sess.starredItems
@@ -86,7 +87,9 @@ app.get('/index', (req, res) => {
 })
 
 app.get('/itinerary', (req, res) => {
-  res.render('itinerary')
+  // res.send('Hello')
+  res.render('itinerary',{selectedLocs: inputForFinalPage})
+  // res.render('itinerary')
 })
 
 app.post('/attractions', (req, res) => {
@@ -98,6 +101,8 @@ app.post('/attractions', (req, res) => {
   // console.log('Made It');
   // console.log(req.body.attraction);
   // sess.attractions = []
+  inputForFinalPage.push(req.body.attraction)
+  console.log(inputForFinalPage)
   // sess.attractions.push(req.body.attraction)
   // console.log(sess.attractions);
 })
