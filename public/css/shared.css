@@ -1,4 +1,9 @@
-.sign_in_button {
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.button {
     background-color: #6557f5; 
     border: 1px solid #6557f5;
     color: white;
@@ -10,6 +15,24 @@
     cursor: pointer;
     border-radius: 3px;
     font-size: 16px;
+    transition: all linear 0.3s; 
+}
+
+.button:hover {
+    box-shadow: 0px 5px 10px #d5d5d5;
+}
+
+.button_outline {
+    background-color: #fff;
+    color: #6557f5;
+    border: 1px solid #6557f5;
+    transition: all linear 0.2;   
+}
+
+.button_outline:hover {
+    background-color: #6557f5; 
+    border: 1px solid #6557f5;
+    color: white;
 }
 
 .shared_nav nav {
@@ -24,6 +47,10 @@
     font-family: 'Balsamiq Sans', cursive;
     font-size: 30px;
     margin: 0;
+}
+.navbar_signin a:hover {
+    font-weight: bold;
+    /* font-size: 1.3rem; */
 }
 
 .shared_nav nav span {
