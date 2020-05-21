@@ -4,7 +4,7 @@ body, h1 {
 
 .welcome_page__header {
     background-color: aqua;
-    height: 170px;
+    height: 190px;
     display: grid;
     align-content: center;
     text-align: center;
