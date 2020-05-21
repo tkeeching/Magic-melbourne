@@ -101,24 +101,17 @@ app.get('/index', (req, res) => {
 })
 
 app.get('/itinerary', (req, res) => {
-  // res.send('Hello')
   res.render('itinerary',{selectedLocs: inputForFinalPage})
-  // res.render('itinerary')
 })
 
 app.post('/attractions', (req, res) => {
   sess = req.session
-  console.log(req.body.idArr)
 
-  //this is Kevin experiment, I managed to retrieve the attraction object under req.body.attraction
-  //the problem is that the array keeps on re-initialese....
-  // console.log('Made It');
-  // console.log(req.body.attraction);
-  // sess.attractions = []
+
   inputForFinalPage.push(req.body.attraction)
   console.log(inputForFinalPage)
-  // sess.attractions.push(req.body.attraction)
-  // console.log(sess.attractions);
+
+  res.send(inputForFinalPage)
 })
 
 // geoJSON output
