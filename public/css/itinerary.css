@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+}
+
+.itinerary_global_component { 
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: grid;
+    justify-content: center;
+}
+
+.itinerary_interest_box {
+    display: grid;
+    grid-template-columns: 2fr 6fr 1fr;
+    border: 2px solid rgb(172, 179, 184);
+    font-family:-apple-system, BlinkMacSystemFont;
+    padding: 10px 20px 10px 0;
+    color: #262626;
+    width: 800px;
+    margin-top: 20px;
+}
+
+.itinerary_interest_description {
+    margin: 5px 0 0 15px;
+}
+
+.itinerary_interest_box h2 {
+    margin: 0;
+}
+
+.itinerary_interest_box button {
+    position: relative;
+    margin: 200px 0 0 20px;
+    font-size: 20px;
+    background-color: #6557f5; 
+    border: 1px solid #6557f5;
+    color: white;
+    padding: 7px 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    transition: all linear 0.3s; 
+}
+
+.itinerary_page_header_cover {
+    height: 250px;
+    background-image: url('https://melbournestreet.net/wp-content/uploads/2014/03/melbournestreetHR-.jpg'), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: soft-light;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.itinerary_page_header_cover h1 {
+    margin: 0;
+    color: white;
+    font-size: 65px;
+    font-family: 'Suez One', serif;
+    letter-spacing: 3.5px;
+    word-spacing: 10px;
+}
+
+.itinerary_page__controls {
+    text-align: right;
+}
+
+.checked {
+    color: #6557f5;
+}
