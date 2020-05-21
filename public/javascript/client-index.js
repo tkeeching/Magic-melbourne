@@ -6,7 +6,8 @@ arrOfattractions.forEach(att => {
     att.addEventListener('click', e => {
         let attId = e.target.id
         arrOfSelectedAttractions.push(attId)
-        e.target.style.color = 'red'
+        e.target.classList.remove('fa-star-o');
+        e.target.classList.add('fa-star');
         // const url = 'http://localhost:8080/attractions'
         // const params = {
         //     id: e.target.id,

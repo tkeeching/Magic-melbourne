@@ -1,9 +1,9 @@
 .interest_box {
     display: grid;
     grid-template-columns: 2fr 6fr 1fr;
-    border: 2px solid rgb(172, 179, 184);
+    border: 1px solid rgba(0, 0, 0, 0.694);
     font-family:-apple-system, BlinkMacSystemFont;
-    padding: 10px 20px 10px 0;
+    padding: 10px 20px 10px 10px;
     color: #262626;
     width: 800px;
     margin-top: 20px;

@@ -68,7 +68,7 @@
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
         
-        let html = `<div class="index__map_layout"><img src="${ image }" alt="${name} image" class="index__map__pop_up_image"><div class="pop_up_text"><h1 class="index__map__pop_up_title">${name}</h1><p class="index__map__pop_up_p">${description}</p><i class="fa fa-star index__map__pop_up_icon" style="font-size: 20px"></i></div></div>`
+        let html = `<div class="index__map_layout"><img src="${ image }" alt="${name} image" class="index__map__pop_up_image"><div class="pop_up_text"><h1 class="index__map__pop_up_title">${name}</h1><p class="index__map__pop_up_p">${description}</p><i class="fa fa-star-o index__map__pop_up_icon" style="font-size: 20px"></i></div></div>`
         
         new mapboxgl.Popup()
         .setLngLat(coordinates)
