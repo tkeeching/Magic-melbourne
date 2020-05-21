@@ -16,6 +16,9 @@
         <%- include('welcome_page__login'); -%>
     </div>
     <br><br><br><br>
+    <%= `User ${ currentUserId }'s session`%>
+    <br />
+    <%= `User ${ currentUserId }'s starred items: ${ starredItems }`%>
 
     <script src="/js/welcome_page.js"></script>
 </body>
