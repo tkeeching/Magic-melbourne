@@ -14,7 +14,14 @@ app.set('view engine', 'ejs');
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-
+app.use(session({
+  genid: function(req) {
+    // return genuuid() // use UUIDs for session IDs
+  },
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
 
 ////////////   Routes  /////////////
 app.get('/', (req, res) => {
@@ -55,6 +62,10 @@ app.get('/index', (req, res) => {
   })
 })
 
+app.get('/itinerary', (req,res) => {
+  // app.send('iti page')
+  res.render('itinerary')
+})
 
 // geoJSON output
 app.get('/api/geojson', (req, res) => {
