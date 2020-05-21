@@ -1,20 +1,46 @@
-<div class="interest_container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="interest_container">
    
-    <% attractions.forEach(attraction => { %> 
-     <!-- TO BE FINISHED -->
-         <div class="interest_box">
-             <img src="<%= attraction.image %>" alt="">
-             <div class="interest_description">
-                 <h2><%= attraction.name %> </h2>
-                 <p><%= attraction.description %> </p>
+        <% attractions.forEach(attraction => { %> 
+         <!-- TO BE FINISHED -->
+             <div class="interest_box">
+                 <img src="<%= attraction.image %>" alt="">
+                 <div class="interest_description">
+                     <h2><%= attraction.name %> </h2>
+                     <p><%= attraction.description %> </p>
+                 </div>
+                 <div class="interest_star">
+                     <i class="fa fa-star-o" id="<%=attraction.id%>" style="font-size:50px"></i>
+                 </div>
              </div>
-             <div class="interest_star">
-                 <i class="fa fa-star-o" style="font-size:50px"></i>
-             </div>
-         </div>
- 
-     <% })  %> 
- 
- </div>
+     
+         <% })  %> 
+     
+     </div>
+    <script>
+        let arrOfattractions = document.querySelectorAll('.fa')
+        let arrOfSelectedAttractions = []
+        arrOfattractions.forEach(att => {
+            att.addEventListener('click', e =>{
+                let attId = e.target.id
+                arrOfSelectedAttractions.push(attId)
+                e.target.style.color = 'red'
+            })
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
  
  
