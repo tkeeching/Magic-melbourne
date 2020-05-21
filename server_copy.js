@@ -8,6 +8,9 @@ const axios = require('axios');
 const geoJSON = require('./library/geoJSON_module');
 const session = require('express-session')
 
+const attractionsRouter = require('./routes/attractions')
+const indexRouter = require('./routes/index')
+
 
 ////////////   Middleware /////////////
 app.set('view engine', 'ejs');
@@ -15,11 +18,22 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+app.use('/attractions', attractionsRouter)
+app.use('/', indexRouter)
+
+app.use(session({
+  genid: function(req) {
+    // return genuuid() // use UUIDs for session IDs
+  },
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
 
 ////////////   Routes  /////////////
-app.get('/', (req, res) => {
-    res.render('welcome_page')
-})
+// app.get('/', (req, res) => {
+//     res.render('welcome_page')
+// })
 
 
 app.get('/index', (req, res) => {
@@ -54,7 +68,6 @@ app.get('/index', (req, res) => {
     })
   })
 })
-
 
 // geoJSON output
 app.get('/api/geojson', (req, res) => {
