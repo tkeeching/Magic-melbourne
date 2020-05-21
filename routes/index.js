@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router()
 
-router.get('/', (req, res, next) => {
-    res.render('welcome_page')
-})
+// app.get('/', (req, res) => {
+//     sess = req.session;
+//     sess.starredItems = [];
+//     inputForFinalPage = []
+//     res.render('welcome_page')
+// })
 
-router.get('/itinerary', (req, res, next) => {
-    res.render('itinerary')
-})
+// app.get('/itinerary', (req, res) => {
+//     res.render('itinerary',{selectedLocs: inputForFinalPage})
+// })
 
 module.exports = router;
