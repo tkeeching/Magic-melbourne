@@ -20,11 +20,7 @@
         <%- include('index__map'); -%>
         <%- include('index__interest_list'); -%>
     </div>
-    <%= `User ${ currentUserId }'s session`%>
-    <br />
-    <%= `User ${ currentUserId }'s starred items: ${ starredItems }` %>
-    <br />
-    <%= `User ${ currentUserId }'s api results: ${ apiResults }` %>
+    <%- include('index__user_search'); -%> 
 
     <%- include('shared__footer'); -%>
 
