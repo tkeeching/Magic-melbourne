@@ -2,7 +2,9 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-const morgan = require('morgan');
+if (!process.env.PRODUCTION) {
+  const morgan = require('morgan');
+} 
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const geoJSON = require('./library/geoJSON_module');
@@ -15,7 +17,9 @@ let inputForFinalPage = []
 
 ////////////   Middleware /////////////
 app.set('view engine', 'ejs');
-app.use(morgan('combined'));
+if (!process.env.PRODUCTION) {
+  app.use(morgan('combined'));
+}
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
@@ -61,8 +65,10 @@ app.get('/index', (req, res) => {
     let arrOfInstances = []
 
     arrOfPlaces.forEach(place => {
-      let instancePlace = { id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url, timeToSpend: place.duration_estimate }
-      arrOfInstances.push(instancePlace)
+      if (place.perex !== null){
+        let instancePlace = { id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url, timeToSpend: place.duration_estimate}
+        arrOfInstances.push(instancePlace)
+      }
     })
 
     res.render('index', {
