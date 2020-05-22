@@ -8,7 +8,6 @@ axios.get(url).then(res =>  {
 
     const displayTemp = document.querySelector(".weather_temp");
     const dislayDescription = document.querySelector(".weather_description");
-    const displayWeatherIcon = document.querySelector(".weather_icon");
     const iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
     const kelvin = 273;
     const  navBarHeading = document.querySelector(".navbar_heading");
@@ -16,7 +15,7 @@ axios.get(url).then(res =>  {
     displayTemp.textContent = Math.round(temp - kelvin) + "°C";
     dislayDescription.textContent = description;
     const iconElem = document.createElement("img");
+    iconElem.classList.add('header_icon');
     iconElem.setAttribute("src", iconUrl);
-    const displayWidgit = document.querySelector(".weather_widget");
-    navBarHeading.appendChild(iconElem);
+    dislayDescription.appendChild(iconElem);
 })   
