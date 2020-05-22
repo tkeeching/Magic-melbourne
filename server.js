@@ -61,7 +61,7 @@ app.get('/index', (req, res) => {
     let arrOfInstances = []
 
     arrOfPlaces.forEach(place => {
-      let instancePlace = { id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url }
+      let instancePlace = { id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url, timeToSpend: place.duration_estimate }
       arrOfInstances.push(instancePlace)
     })
 
@@ -87,12 +87,14 @@ app.get('/index', (req, res) => {
       let arrOfInstances = []
 
       arrOfPlaces.forEach(place => {
-        let instancePlace = { id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url }
-        arrOfInstances.push(instancePlace)
+        if (place.perex !== null){
+          let instancePlace = { id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url, timeToSpend: place.duration_estimate}
+          arrOfInstances.push(instancePlace)
+        }
       })
 
       sess.apiResults = response.data;
-
+      // res.json(arrOfInstances)
       res.render('index', {
         attractions: arrOfInstances
       })
