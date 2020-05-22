@@ -40,7 +40,7 @@ app.use(session({
   secret: 'tom cat',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 3600000 }
+  cookie: { secure: true, maxAge: 3600000 }
 }))
 
 var sess;
