@@ -15,9 +15,16 @@ arrOfattractions.forEach(att => {
     att.addEventListener('click', e => {
         let attId = e.target.id
         arrOfSelectedAttractions.push(attId)
-        e.target.classList.remove('fa-star-o');
-        e.target.classList.add('fa-star');
+        // e.target.classList.remove('fa-star-o');
+        // e.target.classList.add('fa-star');
 
+        if (e.target.classList.contains('fa-star-o')) {
+            e.target.classList.remove('fa-star-o');
+            e.target.classList.add('fa-star');
+        } else {
+            e.target.classList.remove('fa-star');
+            e.target.classList.add('fa-star-o');
+        }
         // V2 => this passes the event target attraction to the server
         
         console.log(e.target.dataset.object);

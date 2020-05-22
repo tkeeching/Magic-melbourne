@@ -74,3 +74,7 @@ body {
 .checked {
     color: #6557f5;
 }
+
+.header_icon_iti {
+    margin-left: 65px;
+}

@@ -35,3 +35,8 @@ body {
 button:focus {
     outline: none;
 }
+
+.header_icon {
+    width: 54px;
+    margin-left: 65px;
+}
