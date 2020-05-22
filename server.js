@@ -61,24 +61,24 @@ app.get('/', (req, res) => {
 app.get('/index', (req, res) => {
   sess = req.session;
   
-  if (sess.apiResults) {
+  // if (sess.apiResults) {
 
-    let arrOfPlaces = sess.apiResults.data.places
-    let arrOfInstances = []
+  //   let arrOfPlaces = sess.apiResults.data.places
+  //   let arrOfInstances = []
 
-    arrOfPlaces.forEach(place => {
-      if (place.perex !== null){
-        let instancePlace = { id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url, timeToSpend: place.duration_estimate}
-        arrOfInstances.push(instancePlace)
-      }
-    })
+  //   arrOfPlaces.forEach(place => {
+  //     if (place.perex !== null){
+  //       let instancePlace = { id: place.id, name: place.name, location: place.location, description: place.perex, image: place.thumbnail_url, timeToSpend: place.duration_estimate}
+  //       arrOfInstances.push(instancePlace)
+  //     }
+  //   })
 
-    res.render('index', {
-      attractions: arrOfInstances
-    })
+  //   res.render('index', {
+  //     attractions: arrOfInstances
+  //   })
 
 
-  } else {
+  // } else {
 
     let url = `https://api.sygictravelapi.com/1.2/en/places/list?parents=city:381&categories=${req.query.category}&limit=20`
 
@@ -109,7 +109,7 @@ app.get('/index', (req, res) => {
         attractions: arrOfInstances
       })
     })
-  }
+  // }
 })
 
 app.get('/itinerary', (req, res) => {
