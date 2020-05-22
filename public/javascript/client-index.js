@@ -1,9 +1,24 @@
 let cartCount = document.querySelector('.index__navbar_cart_count');
 let cartDisplay = document.querySelector('.index__navbar_cart');
 
-if (cartCount.textContent == "") {
-    cartDisplay.style.display = "none"
-}
+
+axios.get('/attractions').then(response => {
+    
+    if (response.data.length < 1) {
+        cartDisplay.style.display = "none"
+    } else {
+        cartDisplay.style.display = "inline"
+        cartCount.textContent = response.data.length;
+    }
+ 
+//     console.log(response.data.length);
+//     cartDisplay.style.display = "inline"
+//     cartCount.textContent = response.data.length;
+})
+
+// if (cartCount.textContent == "") {
+//     cartDisplay.style.display = "none"
+// }
 
 
 

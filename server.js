@@ -48,7 +48,8 @@ var sess;
 app.get('/', (req, res) => {
   sess = req.session;
   sess.starredItems = [];
-  inputForFinalPage = []
+  inputForFinalPage = [];
+  sess.apiResults = "";
   res.render('welcome_page', {
     currentUserId: sess.id,
     starredItems: sess.starredItems
@@ -119,6 +120,11 @@ app.post('/attractions', (req, res) => {
   inputForFinalPage.push(req.body.attraction)
   console.log(inputForFinalPage)
 
+  res.send(inputForFinalPage)
+})
+
+app.get('/attractions', (req, res) => {
+  sess = req.session
   res.send(inputForFinalPage)
 })
 
