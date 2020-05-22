@@ -135,6 +135,7 @@ app.get('/attractions', (req, res) => {
 // geoJSON output
 app.get('/api/geojson', (req, res) => {
   sess = req.session;
+  console.log(geoJSON.convertToGeoJSON(sess.apiResults)); // heroku test
   res.json(geoJSON.convertToGeoJSON(sess.apiResults));
 })
 
