@@ -45,6 +45,7 @@
                         <h2><%= loc.name %> </h2>
                         <p><%= loc.description %></p>
                         <p><b>Address:</b> 106 Elizabeth Street, Melbourne VIC 3000 </p>
+                        <p><b>Recommended time: </b><%= loc.timeToSpend/1000 %> hours</p>
                         <p><b>Rating:</b>
                             <% x = (Math.floor(Math.random() * 2) == 0); %>    
                             <% if (x) { %>          
