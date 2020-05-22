@@ -91,6 +91,7 @@ app.get('/index', (req, res) => {
       // res.json(response.data)
 
       // clean up the date to provide us the relevant information
+      console.log(response.data); // heroku test
       let arrOfPlaces = response.data.data.places
       let arrOfInstances = []
 
@@ -102,6 +103,7 @@ app.get('/index', (req, res) => {
       })
 
       sess.apiResults = response.data;
+      console.log(sess.apiResults); // heroku test
       // res.json(arrOfInstances)
       res.render('index', {
         attractions: arrOfInstances
