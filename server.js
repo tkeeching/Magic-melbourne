@@ -31,6 +31,7 @@ app.use(express.static('public'));
 
 
 ////////////  Session setup  /////////////
+app.set('trust proxy', 1)
 app.use(session({
   name: 'SessionCookie',
   genid: function (req) {
