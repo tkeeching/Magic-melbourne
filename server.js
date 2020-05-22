@@ -105,6 +105,8 @@ app.get('/index', (req, res) => {
       sess.apiResults = response.data;
       console.log(sess.apiResults); // heroku test
       console.log(arrOfInstances); // heroku test
+      console.log(geoJSON.convertToGeoJSON(sess.apiResults)); // heroku test
+
       // res.json(arrOfInstances)
       res.render('index', {
         attractions: arrOfInstances
