@@ -42,7 +42,7 @@ arrOfattractions.forEach(att => {
         }
         // V2 => this passes the event target attraction to the server
         
-        console.log(e.target.dataset.object);
+        // console.log(e.target.dataset.object);
 
         const url = '/attractions'
         const params = {

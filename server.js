@@ -2,9 +2,9 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-if (!process.env.PRODUCTION) {
-  const morgan = require('morgan');
-} 
+// if (!process.env.PRODUCTION) {
+//   const morgan = require('morgan');
+// } 
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const geoJSON = require('./library/geoJSON_module');
@@ -17,9 +17,9 @@ let inputForFinalPage = []
 
 ////////////   Middleware /////////////
 app.set('view engine', 'ejs');
-if (!process.env.PRODUCTION) {
-  app.use(morgan('combined'));
-}
+// if (!process.env.PRODUCTION) {
+//   app.use(morgan('combined'));
+// }
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
@@ -50,10 +50,7 @@ app.get('/', (req, res) => {
   sess.starredItems = [];
   inputForFinalPage = [];
   sess.apiResults = "";
-  res.render('welcome_page', {
-    currentUserId: sess.id,
-    starredItems: sess.starredItems
-  })
+  res.render('welcome_page')
 })
 
 
@@ -118,7 +115,7 @@ app.post('/attractions', (req, res) => {
 
 
   inputForFinalPage.push(req.body.attraction)
-  console.log(inputForFinalPage)
+  // console.log(inputForFinalPage)
 
   res.send(inputForFinalPage)
 })
