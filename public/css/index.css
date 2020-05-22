@@ -44,12 +44,11 @@ button:focus {
 .index__user_dropdown {
     border: 2px solid #6557f5; 
     text-align: center;
-    padding: 40px;
+    padding: 20px;
     display: grid;
     align-items: center;
-    margin-top: 85px;
-    float: right;
-    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
 
 .welcome_page__main select {
@@ -102,7 +101,7 @@ button:focus {
 }
 
 #index_select {
-    width: 100%;
+    width: 60%;
     margin: 26px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -116,7 +115,7 @@ button:focus {
     background-color: #6557f5; 
     border: 1px solid #6557f5;
     color: white;
-    padding: 9px 15px;
+    padding: 9px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
