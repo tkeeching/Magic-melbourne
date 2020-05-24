@@ -1,10 +1,12 @@
 ////////////   Modules  /////////////
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 8080;
-// if (!process.env.PRODUCTION) {
+const port = process.env.PORT
+// if (process.env.DEVELOPMENT) {
 //   const morgan = require('morgan');
-// } 
+// }
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const geoJSON = require('./library/geoJSON_module');
@@ -17,7 +19,7 @@ let inputForFinalPage = []
 
 ////////////   Middleware /////////////
 app.set('view engine', 'ejs');
-// if (!process.env.PRODUCTION) {
+// if (process.env.DEVELOPMENT) {
 //   app.use(morgan('combined'));
 // }
 app.use(bodyParser.json());
@@ -80,7 +82,7 @@ app.get('/index', (req, res) => {
 
     axios.get(url, {
       headers: {
-        'x-api-key': 'BNLiHyXDsUa1OhdwsHho47y6rO0HKcNa5BWnofl7'
+        'x-api-key': process.env.API_KEY_SYGIC
       }
     }).then(response => {
 
