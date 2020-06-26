@@ -2,6 +2,11 @@
 ## An Interactive Itinerary Planner for Tourists  
 [See Here](https://magic-melbourne-moments.herokuapp.com/)
 
+<a href="https://magic-melbourne-moments.herokuapp.com/" target="_blank">
+  <img src="./screenshot.png" alt="screenshot">
+</a>
+
+
 ### Brief   <hr /> 
 Collaborate on a project  to learn the challenges and triumphs of working with others. Cooperate as team to build a full-stack web application utilising technologies of your choice. 
 
