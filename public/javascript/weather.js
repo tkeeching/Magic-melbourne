@@ -1,4 +1,4 @@
-const url = 'http://api.openweathermap.org/data/2.5/weather?lat=-37.8136&lon=144.9631&appid=753de0d43c90ad8a12bf508c48b1f51e'
+const url = `http://api.openweathermap.org/data/2.5/weather?lat=-37.8136&lon=144.9631&appid=753de0d43c90ad8a12bf508c48b1f51e`
 
 axios.get(url).then(res =>  {
     
