@@ -12,12 +12,22 @@
 <body>
 
     <%- include('welcome_page__header'); -%>
+
+    
     <div class="welcome_page__main">
         <%- include('welcome_page__user_dropdown'); -%>
         <%- include('welcome_page__login'); -%>
     </div>
-   <br><br><br><br>
-
+    <br><br><br><br>
+    <div style="margin-top: -35px">
+        <span style="font-size: 20px; font-family:'Balsamiq Sans', cursive; font-weight: bold;">Current weather: </span>                
+        <span class="weather_icon"></span>
+        <span  style="font-size: 18px" class="weather_temp"></span>
+        <span style="font-size: 18px"class="weather_description"></span>
+    </div></a>
+    
+   <script src="javascript/weather.js"></script>
     <script src="/js/welcome_page.js"></script>
+
 </body>
 </html>
