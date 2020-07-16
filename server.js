@@ -2,9 +2,9 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
-// if (!process.env.PRODUCTION) {
+if (!process.env.PRODUCTION) {
   const morgan = require('morgan');
-// } 
+} 
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const geoJSON = require('./library/geoJSON_module');
@@ -17,9 +17,9 @@ let inputForFinalPage = []
 
 ////////////   Middleware /////////////
 app.set('view engine', 'ejs');
-// if (!process.env.PRODUCTION) {
+if (!process.env.PRODUCTION) {
   app.use(morgan('combined'));
-// }
+}
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
