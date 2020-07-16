@@ -1,10 +1,10 @@
 ////////////   Modules  /////////////
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
-if (!process.env.PRODUCTION) {
+const port = process.env.PORT || 8080;
+// if (!process.env.PRODUCTION) {
   const morgan = require('morgan');
-} 
+// } 
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const geoJSON = require('./library/geoJSON_module');
@@ -17,9 +17,9 @@ let inputForFinalPage = []
 
 ////////////   Middleware /////////////
 app.set('view engine', 'ejs');
-if (!process.env.PRODUCTION) {
+// if (!process.env.PRODUCTION) {
   app.use(morgan('combined'));
-}
+// }
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
@@ -84,7 +84,7 @@ app.get('/index', (req, res) => {
 
     axios.get(url, {
       headers: {
-        'x-api-key': 'BNLiHyXDsUa1OhdwsHho47y6rO0HKcNa5BWnofl7'
+        'x-api-key': process.env.SYGIC_API_KEY
       }
     }).then(response => {
 
