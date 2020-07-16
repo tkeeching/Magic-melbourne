@@ -1,4 +1,4 @@
-const url = 'http://api.openweathermap.org/data/2.5/weather?lat=-37.8136&lon=144.9631&appid=5bda63076664799730f7a2c28aa82b2b'
+const url = 'https://api.openweathermap.org/data/2.5/weather?lat=-37.8136&lon=144.9631&appid=5bda63076664799730f7a2c28aa82b2b'
 
 axios.get(url).then(res =>  {
     
@@ -10,7 +10,7 @@ axios.get(url).then(res =>  {
     const dislayDescription = document.querySelector(".weather_description");
     const iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
     const kelvin = 273;
-    const  navBarHeading = document.querySelector(".navbar_heading");
+    const navBarHeading = document.querySelector(".navbar_heading");
 
     displayTemp.textContent = Math.round(temp - kelvin) + "°C";
     dislayDescription.textContent = description;
