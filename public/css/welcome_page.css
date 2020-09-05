@@ -139,7 +139,7 @@ body, h1 {
     font-size: 34px;
 }
 
-@media screen and (max-witdh: 900px) {
+@media screen and (max-width: 900px) {
     .welcome_page__login {
         display: none;
     }
