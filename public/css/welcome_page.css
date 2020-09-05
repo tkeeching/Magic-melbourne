@@ -18,9 +18,21 @@ body, h1 {
 }
 
 .welcome_page__header h1 {
-    color: white;
-    font-size: 47px;
     font-family: 'Suez One', serif;
+}
+
+.welcome_page__header h1:first-of-type {
+    color: rgb(121, 109, 255); 
+    font-size: 2rem; 
+    margin-top: 10px; 
+    text-transform: uppercase;
+}
+
+.welcome_page__header h1:last-of-type {
+    color: white;
+    word-spacing: 10px;
+    letter-spacing: 3.5px; 
+    font-size: 4rem
 }
 
 .welcome_page__main {
@@ -125,4 +137,14 @@ body, h1 {
 
 .category_search_label {
     font-size: 34px;
+}
+
+@media screen and (max-witdh: 900px) {
+    .welcome_page__login {
+        display: none;
+    }
+
+    .welcome_page__header h1 {
+        font-size: 2rem;
+    }
 }

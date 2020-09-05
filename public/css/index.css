@@ -62,39 +62,6 @@ button:focus {
     font-size: 18px;
 }
 
-.welcome_page__login input {
-    width: 100%;
-    padding: 10px 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.welcome_page__login label {
-    text-decoration: underline;
-    font-size: 18px;
-}
-
-.welcome_page__login form {
-    margin-top: 30px;
-    text-align: left;
-}
-
-.login__signin_button {
-    background-color: #6557f5; 
-    color: white;
-    padding: 9px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 18px 2px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 16px;
-}
-
 .category_search_label {
     font-size: 22px;
     font-family: 'Balsamiq Sans', cursive;
